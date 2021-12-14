@@ -1,0 +1,20 @@
+<div class='header'>
+  <button *ngIf='!isHide' class='back-button' (click)='navigateBack()'><img
+      src='assets/images/Arrow left-white.svg' />Back</button>
+  <ul class='header-items'>
+    <li *ngIf='isHide' (click)='showSideNav()' class='hamburger'><img src='assets/images/hamburger.svg' /></li>
+    <li *ngIf='isHide' class='white-logo'><img src='assets/images/Logo_Website_Header_On_White.svg' /></li>
+    <li class='header-item'>
+      <div class='search'>
+        <img src='assets/images/Search-Icon.svg' />
+        <input class='big-screen-input' [(ngModel)]='searchText' (keyup)='filterTable()' type='text'
+          placeholder='Search Films and Filmmakers'>
+        <input class='small-screen-input' [(ngModel)]='searchText' (keyup)='filterTable()' type='text'>
+      </div>
+    </li>
+    <li class='header-item'><img src='assets/images/bell-icon.svg'>
+      <div class='notification-count'>6</div>
+    </li>
+    <li class='header-item'><img src='assets/images/User-Pic.png'></li>
+  </ul>
+</div>

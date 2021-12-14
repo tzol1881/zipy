@@ -1,0 +1,95 @@
+<app-header [isHide]='false'></app-header>
+<div class='main-container'>
+    <iframe src="https://www.youtube.com/embed/0yGThj4HskA" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <div class='film-details resize-header' [resizeColumn]="true" [index]="1">
+        <div><span class='film-name'>{{filmDetails.filmname}}</span><span class='film-maker'>by
+                {{filmDetails.filmmaker}}</span></div>
+        <div><span class='category'>{{filmDetails.category}}</span><span class='genre'>{{filmDetails.genre}}</span>
+        </div>
+
+        <p>
+            "{{filmDetails.filmname}}" can best be described as a tale of hope or the story of survival of humanity.
+            It's an experimental film in the Sci-Fi Thriller genre, in which an astronaut stuck on an unknown planet
+            struggles to get back to his ship only to find that things are actually worse than expected. The film also
+            revolves around the subject of the future of life on the planet.
+        </p>
+
+        <mdb-tabs [fill]="true">
+            <mdb-tab title="FILM REVIEWS">
+                <div class="card">
+                    <div class="card-body">
+                        <div><img src='assets/images/User-Pic1.png' /></div>
+                        <div>
+                            <div class='reviewer-name'>Glen Ortega</div>
+                            <div class='review'>This is an amazing film</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div><img src='assets/images/User-Pic2.png' /></div>
+                        <div>
+                            <div class='reviewer-name'>Martha Vasquez</div>
+                            <div class='review'>The Great Waves is the essential resource each person needs to prepare
+                                themselves mentally, emotionally and practically for the great change that is coming.
+                                Wonderful effort overall. Liked a lot.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div><img src='assets/images/User-Pic.png' /></div>
+                        <div>
+                            <div class='reviewer-name'>Billy Hudson</div>
+                            <div class='review'>Nice message oriented short film, Well done.</div>
+                        </div>
+                    </div>
+                </div>
+            </mdb-tab>
+            <mdb-tab title="FILMMAKER INFO">
+                <google-map width='100%' height='300px' [options]="mapOptions">
+                    <map-marker [position]="marker.position"></map-marker>
+                </google-map>
+                <div class="card">
+                    <div class="card-body filmmaker-details">
+                        <div class='filmmaker-info-row'>
+                            <div class='filmmaker-info-column'>
+                                <div class='info-title'>USER</div>
+                                <div class='info-details'>M S N Karthik</div>
+                            </div>
+                            <div class='filmmaker-info-column'>
+                                <div class='info-title'>TIMESTAMP</div>
+                                <div class='info-details'>24 Jun, 23:12:00</div>
+                            </div>
+                        </div>
+                        <div class='filmmaker-info-row'>
+                            <div class='filmmaker-info-column'>
+                                <div class='info-title'>LOCATION</div>
+                                <div class='info-details'>Hyderabad, India</div>
+                            </div>
+                            <div class='filmmaker-info-column'>
+                                <div class='info-title'>ROLE</div>
+                                <div class='info-details'>Writer, Director</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body filmmaker-details">
+                        <div class='info-title'>FILMMAKER BIOGRAPHY</div>
+                        <div class='info-details'>
+                            For many, films are a hobby. For some, they are
+                            a passion. But Karthik is a sort of a person,
+                            who always lived his life in 24 frames. Films
+                            were what shaped him since childhood. He
+                            says that he watched Rob Williams in awe, as
+                            he stood up on his desk to inspire his students
+                            to seize the day, in Dead Poets Society.
+                        </div>
+                    </div>
+                </div>
+            </mdb-tab>
+        </mdb-tabs>
+    </div>

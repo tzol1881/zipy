@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <table mdbTable #tableEl="mdbTable"
+                class="table table-bordered table-responsive-md table-striped text-center">
+                <tr>
+                    <th class="text-center resize-header" *ngFor="let head of headElements; let i = index"
+                        aria-controls="tableSortExample" scope="col" [mdbTableSort]="filmList"
+                        [sortBy]="headElements[i]" [resizeColumn]="true" [index]="i">
+                        <ng-container [ngSwitch]="head.columnName">
+                            <span *ngSwitchCase="'checkbox'"><input type="checkbox" class="film-checkall"
+                                    [checked]='selectAllFilmsCheck' (click)="selectAllFilms()"></span>
+                            <span *ngSwitchDefault>{{head.columnName | titlecase}}
+                                <img src='assets/images/sort.svg' /></span>
+                        </ng-container>
+                    </th>
+                </tr>
+                <tr *ngFor="let film of filmList; let id = index">
+                    <ng-container *ngFor="let head of headElements">
+                        <td *ngIf="id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex"
+                            (click)='navigateToDetails(head.columnName,film)'>
+                            <!-- <span *ngIf="head.columnName !== 'category' && head.columnName !== 'genre'" [attr.contenteditable]=head.checked (keyup)="changeValue(id, head.columnName , $event)" (blur)="updateList(id, head.columnName , $event)">{{film[head.columnName]}}</span>
+                        <span *ngIf="head.columnName === 'category' || head.columnName === 'genre'" [attr.contenteditable]=head.checked (keyup)="changeValue(id, 'genre', $event)" (blur)="updateList(id, head.columnName, $event)"><span class='button' [style.backgroundColor]='getButtonClass(film[head.columnName])'>{{film[head.columnName]}}</span></span> -->
+
+                            <ng-container [ngSwitch]="head.columnName">
+                                <span *ngSwitchCase="'checkbox'"><input type="checkbox" [checked]='film.selected'
+                                        class="film-check" (click)="selectFilm(film)"></span>
+                                <span *ngSwitchCase="'category'" [attr.contenteditable]=head.checked
+                                    (keyup)="changeValue(id, 'genre', $event)"
+                                    (blur)="updateList(id, head.columnName, $event)"><span class='button'
+                                        [style.backgroundColor]='getButtonClass(film[head.columnName])'>{{film[head.columnName]}}</span></span>
+                                <span *ngSwitchCase="'genre'" [attr.contenteditable]=head.checked
+                                    (keyup)="changeValue(id, 'genre', $event)"
+                                    (blur)="updateList(id, head.columnName, $event)"><span class='button'
+                                        [style.backgroundColor]='getButtonClass(film[head.columnName])'>{{film[head.columnName]}}</span></span>
+                                <span *ngSwitchDefault [attr.contenteditable]=head.checked
+                                    (keyup)="changeValue(id, head.columnName , $event)"
+                                    (blur)="updateList(id, head.columnName , $event)">{{film[head.columnName]}}</span>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                </tr>
+            </table>
+            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="filmList" #mdbTablePagination>
+            </mdb-table-pagination>
+        </div>
+    </div>
+</div>

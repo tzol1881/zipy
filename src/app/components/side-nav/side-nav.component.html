@@ -1,0 +1,27 @@
+<div class='sideNav' *ngIf='isShowSideNav'>
+    <div class='logo-container'>
+      <div class='logo'></div>
+      <div class='close-button' (click)='showSideNav()'><img src='assets/images/close.svg'></div>
+    </div>
+    <div class='sideNav-items'>
+        <ul>
+          <li class='list-item'>CONTENT</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/layout-dashboard.svg'/></span>Dashboard</li>
+          <li class='list-sub-item' class='active-li'><span class='nav-icon-container'><img src='assets/images/films.svg'/></span>Film Submissions</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/filmmakers.svg'/></span>Filmmakers <div class='notification-count'>6</div></li>
+          <li class='list-item'>SETTINGS</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/settings.svg'/></span>Project Settings</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/team.svg'/></span>Team Management</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/briefcase.svg'/></span>Integration</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/Target.svg'/></span>Privacy Settings</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/content-paper-edit.svg'/></span>Submission Settings</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/conversation-chat-1.svg'/></span>Alerts & Notifications</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/pricing.svg'/></span>Pricing Plans</li>
+          <li class='list-sub-item'><span class='nav-icon-container'><img src='assets/images/question-circle.svg'/></span>Help & Feedback</li>
+        </ul>
+        <div class="sidenav-footer">
+          <h4 class="sidenav-footer-header">Filmwine 2020</h4>
+          <p class='sidenav-footer-description'>Crafted with love for the community of filmmakers and artist</p>p>
+        </div>
+    </div>
+  </div>

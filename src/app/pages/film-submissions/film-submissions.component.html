@@ -1,0 +1,93 @@
+<div class='main-container'>
+    <app-side-nav></app-side-nav>
+    <div class='main-content'>
+        <app-header (changeSearchText)='filterText=$event'></app-header>
+        <div class='datatable'>
+            <div #alert class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                Click on <strong>Film Name</strong> to see film details. 
+            </div>
+            <h5>Film Submissions</h5>
+            <div class='button-container'>
+                <div class="dropdown">
+                    <button class="btn btn-block text-left dropdown-toggle filter-button" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <span>{{modifyFilterText}}</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-items">
+                            <ng-container *ngFor="let submissionDate of submissionDates">
+                                <div class="dropdown-item" (click)='modifyFilterText=submissionDate'>
+                                    {{submissionDate}}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <button class='modify-button' (click)='modifyFilter()'>Modify Filters</button>
+                <div class="dropdown edit-column">
+                    <button class="btn btn-block text-left dropdown-toggle filter-button" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <span>{{selected}}</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <!-- search -->
+                        <div class="dropdown-item dropdown-item-search" onclick="event.stopPropagation();">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" [(ngModel)]='searchText'
+                                    (keyup)='filterChange()'>
+                            </div>
+                        </div>
+
+                        <!-- checkboxes -->
+                        <div class="dropdown-item-checkboxes">
+                            <!-- all -->
+                            <div class="dropdown-item" onclick="event.stopPropagation();">
+                                <!-- checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" [checked]='selectAll'
+                                        (click)='checkedAll()'>
+                                    <label class="custom-control-label">
+                                        <span class="pl-2 filterSpan">Select All</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div *ngFor='let column of columnList' class="dropdown-item"
+                                onclick="event.stopPropagation();">
+                                <!-- checkbox -->
+                                <div class="custom-control custom-checkbox" *ngIf="column.columnName !=='checkbox'">
+                                    <input type="checkbox" class="custom-control-input" [checked]='column.checked'
+                                        (click)='columnCheck(column.columnName)'>
+                                    <label class="custom-control-label">
+                                        <span class="pl-2 filterSpan" [title]="1">{{column.columnName}}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class='sort-text'>Sort By</span>
+                <div class="dropdown sort-by">
+                    <button class="btn btn-block text-left dropdown-toggle filter-button" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <span>{{sortBy}}</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-items">
+                            <ng-container *ngFor="let column of columnList">
+                                <div class="dropdown-item" (click)="sortColumn(column.columnName)">
+                                    {{column.columnName}}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-table [filterText]='filterText'></app-table>
+        </div>
+    </div>
+</div>
+

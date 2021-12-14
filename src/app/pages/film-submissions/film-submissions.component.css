@@ -1,0 +1,163 @@
+.main-container{
+    display:flex;
+}
+
+.main-content{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+}
+
+.datatable{
+    height: -moz-calc(100% - 70px);
+    height: -webkit-calc(100% - 70px);
+    height: calc(100% - 70px);
+    width:80vw;
+    background-color:#F7F7F7;
+    display: flex;
+    flex-direction: column;
+}
+
+.datatable h5{
+    margin: 30px 25px;
+    font-weight: bold;
+}
+
+.button-container{
+    display:flex;
+    align-items:center;
+    margin: 10px 25px;
+}
+
+.btn-group{
+    width:200px;
+    height:36px;
+    text-align:center;
+    background-color: #ffffff;
+}
+
+.modify-button{
+    width:90px;
+    height:28px;
+    background-color:#FF6C61;
+    color:#ffffff;
+    border:none;
+    border-radius:4px;
+    text-align:center;
+    margin-left:20px;
+}
+
+.sort-text{
+    display:inline-block;
+    margin: 0px 10px;
+    color: #9BA4B0;
+    font-size: 15px;
+}
+
+.edit-column{
+    margin-left:auto;
+}
+
+.pagination {
+    justify-content:flex-end;
+}
+
+nav{
+    margin-top:20px;
+}
+
+.filterSpan{
+    margin-left: 5px;
+}
+
+.filter-button{
+    font-size: 10px;
+}
+
+.alert{
+    margin: 10px 20px;
+}
+
+@media screen and (min-width: 1440px) {
+   .sideNav{
+        width:20vw;
+        height: 100vh;
+        background: #242835;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .btn-group{
+        font-size:10px;
+        width:110px;
+    }
+
+    .btn-group>.btn{
+        font-size:10px;
+        padding:5px;
+    }
+
+    .sort-text{
+        font-size:10px;
+    }
+
+    .modify-button{
+        font-size:10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .btn-group>.btn{
+        font-size:10px;
+        padding:5px;
+    }
+
+    .btn-group{
+        font-size:10px;
+        width:110px;
+    }
+
+    .sort-text{
+        font-size:10px;
+    }
+
+    .modify-button{
+        width:100px;
+        height:36px;
+        font-size:10px;
+    }
+
+    .edit-column{
+        margin-left:20px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .btn-group{
+        width:200px;
+        height:36px;
+        text-align:center;
+        background-color: #ffffff;
+    }
+
+    .modify-button,.btn{
+        width:135px;
+        height:36px;
+        font-size:12px;
+    }
+
+    .sort-by,.edit-column,.sort-text{
+        display:none;
+    }
+
+    .datatable{
+        width:100%;
+        height:100%
+    }
+
+    .datatable h5{
+        margin: 15px 25px;
+        font-weight: bold;
+    }
+}
